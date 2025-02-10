@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
+    "exceljs": "^4.4.0",
     "primereact": "^10.9.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
