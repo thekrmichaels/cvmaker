@@ -6,14 +6,7 @@ import { Card } from "primereact/card";
 const Pricing = () => {
   const [maxHeight, setMaxHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
-  const { theme, themeStyle } = useThemeContext();
-
-  const borderStyle =
-    theme === "light" ? "border-[#747775]" : "border-[#8e918f]";
-  const focusStyle =
-    theme === "light"
-      ? "focus:border-[#1f1f1f] focus:ring-1 focus:ring-[#1f1f1f]"
-      : "focus:border-[#e3e3e3] focus:ring-1 focus:ring-[#e3e3e3]";
+  const { themeClass } = useThemeContext();
 
   const plans = useMemo(
     () => [
@@ -31,7 +24,7 @@ const Pricing = () => {
           "Keyword-based resumes (English only)",
         ],
         buttonLabel: "Upgrade now",
-        link: "https://buymeacoffee.com/amilkarjdie/e/366566",
+        link: "https://buymeacoffee.com/thekrmichaels/e/366566",
       },
       {
         title: "1 Year Access",
@@ -41,7 +34,7 @@ const Pricing = () => {
           "Keyword-based resumes (English only)",
         ],
         buttonLabel: "Upgrade now",
-        link: "https://buymeacoffee.com/amilkarjdie/e/366568",
+        link: "https://buymeacoffee.com/thekrmichaels/e/366568",
       },
     ],
     [],
@@ -64,15 +57,13 @@ const Pricing = () => {
   }, [plans]);
 
   return (
-    <div
-      className={`${themeStyle} mt-24 flex flex-col items-center justify-center gap-6 p-6 md:flex-row`}
-    >
+    <div className="mt-24 flex flex-col items-center justify-center gap-6 p-6 md:flex-row">
       {plans.map((plan, index) => (
         <Card
           key={index}
           title={plan.title}
           subTitle={plan.price}
-          className={`${themeStyle} card w-full rounded border border-[#747775] shadow-lg`}
+          className={`${themeClass} card w-full rounded border border-[#747775] shadow-lg dark:border-[#8e918f]`}
           style={{
             minHeight: `${maxHeight}px`,
             display: "flex",
@@ -85,7 +76,7 @@ const Pricing = () => {
                 <a href={plan.link} target="_blank" rel="noopener noreferrer">
                   <Button
                     label={plan.buttonLabel}
-                    className={`${borderStyle} ${focusStyle} ${themeStyle} w-full rounded border border-[#747775] hover:bg-opacity-50`}
+                    className={`${themeClass} ${themeClass === "light-theme" ? "button--focus-light" : "button--focus-dark"} button w-full`}
                     severity="secondary"
                   />
                 </a>
