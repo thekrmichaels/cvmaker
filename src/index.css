@@ -16,6 +16,59 @@
   @tailwind components;
   @tailwind utilities;
 
+  /* * Background styles */
+  .bg-pattern {
+    background-repeat: repeat-y;
+    background-size: 100vw auto;
+  }
+
+  .bg-pattern--dark {
+    @apply bg-[#323233];
+    background-image: url("data:image/svg+xml,%3Csvg width='49' height='84' viewBox='0 0 49 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,84V73H8.5V84ZM8,56V45h8.5V56ZM0,42V31H8.5V42ZM0,28V17h8.5v11zm8,0V17h8.5V28Z M8,42V31h8.5v11zm16,0V31h8.5V42ZM16,28V17h8.5V28ZM16,14V3h8.5V14ZM0,14V3H8.5V14Z M32,56V45h8.5V56ZM16,70V59h8.5v11zm8,14V73h8.5v11zm8,0V73h8.5V84ZM32,70V59h8.5V70Z M40,56V45h8.5v11zm0,14V59h8.5V70ZM40,42V31h8.5V42ZM32,28V17h8.5v11zm-8,0V17h8.5V28Z M32,14V3h8.5V14Zm8,0V3h8.5V14ZM24,70V59h8.5V70ZM16,56V45h8.5V56ZM8,70V59h8.5V70Z M8,84V73h8.5v11z' fill='%233A3A3B' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  .bg-pattern--light {
+    @apply bg-[#e0e0e0];
+    background-image: url("data:image/svg+xml,%3Csvg width='49' height='84' viewBox='0 0 49 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,84V73H8.5V84ZM8,56V45h8.5V56ZM0,42V31H8.5V42ZM0,28V17h8.5v11zm8,0V17h8.5V28Z M8,42V31h8.5v11zm16,0V31h8.5V42ZM16,28V17h8.5V28ZM16,14V3h8.5V14ZM0,14V3H8.5V14Z M32,56V45h8.5V56ZM16,70V59h8.5v11zm8,14V73h8.5v11zm8,0V73h8.5V84ZM32,70V59h8.5V70Z M40,56V45h8.5v11zm0,14V59h8.5V70ZM40,42V31h8.5V42ZM32,28V17h8.5v11zm-8,0V17h8.5V28Z M32,14V3h8.5V14Zm8,0V3h8.5V14ZM24,70V59h8.5V70ZM16,56V45h8.5V56ZM8,70V59h8.5V70Z M8,84V73h8.5v11z' fill='%23E8E8E8' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  /* * Base styles for the background and text of components */
+  .bg-theme {
+    @apply bg-white dark:bg-[#131314];
+  }
+
+  .text-theme {
+    @apply text-[#1f1f1f] dark:text-[#e3e3e3];
+  }
+
+  /* * Button styles */
+  .button {
+    @apply rounded border transition hover:[box-shadow:0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)];
+  }
+
+  /* * Button modifiers */
+  .button--light {
+    @apply border-[#747775] hover:bg-[#eeeeee] focus:border-[#747775] focus:ring-1 focus:ring-[#747775] active:bg-[#e0e0e0];
+  }
+
+  .button--dark {
+    @apply border-[#8e918f] focus:border-[#8e918f] focus:ring-1 focus:ring-[#8e918f] dark:hover:bg-[#252526] dark:active:bg-[#2e2e2f];
+  }
+
+  /* * Input styles */
+  .input {
+    @apply cursor-text rounded border transition;
+  }
+
+  /* * Input modifiers */
+  .input--light {
+    @apply border-[#747775] focus:border-[#747775] focus:ring-1 focus:ring-[#747775];
+  }
+
+  .input--dark {
+    @apply border-[#8E918F] focus:border-[#8E918F] focus:ring-1 focus:ring-[#8E918F];
+  }
+
   .font-roboto {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
