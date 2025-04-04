@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { AuthProvider } from "./contexts/AuthProvider.jsx";
 import { BrowserRouter, Routes, Route } from "react-router";
@@ -7,7 +7,9 @@ import { ThemeProvider } from "./contexts/ThemeProvider.jsx";
 import "./index.css";
 import App from "./App.jsx";
 import Home from "./routes/Home.jsx";
-import Pricing from "./routes/Pricing.jsx";
+import Suspense from "./components/Suspense/Suspense.jsx";
+
+const Pricing = lazy(() => import("./routes/Pricing.jsx"));
 
 const BASE_PATH = "/cvmaker";
 
@@ -18,10 +20,12 @@ createRoot(document.getElementById("root")).render(
         <PrimeReactProvider>
           <ThemeProvider>
             <App>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/pricing" element={<Pricing />} />
-              </Routes>
+              <Suspense>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/pricing" element={<Pricing />} />
+                </Routes>
+              </Suspense>
             </App>
           </ThemeProvider>
         </PrimeReactProvider>
