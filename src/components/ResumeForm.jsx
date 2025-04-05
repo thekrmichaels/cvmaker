@@ -61,7 +61,7 @@ const ResumeForm = ({ user: { email, license, sub: userId } }) => {
           className={`${bgClass} ${textClass} w-full cursor-pointer rounded px-5 ${buttonStyle}`}
         />
 
-        {!license && (
+        {license && (
           <>
             <div className="flex items-center space-x-2">
               <label
